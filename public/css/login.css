@@ -1,0 +1,65 @@
+
+#form__signon{
+    background-color: rgb(124, 34, 1);
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 60%;
+    height: 80%;
+    border-radius: 5%;
+}
+#form__signon>h3{
+    width: 80%;
+    border: .1rem solid white;
+}
+#data__container, #title_container{
+    position: relative;
+    left: 20%;
+}
+#title_container{
+    position: relative;
+    padding: .5rem;
+    width: 60%;
+    top: 20%;
+    background-color: rgb(124, 70, 1);
+    align-content: center;
+    color: lightyellow;
+}
+#data__container{
+    width: 60%;
+    top: 25%;
+    padding: 1rem .5rem;
+    border: .1rem solid rgb(124, 70, 1);
+}
+.inputlabel, .inputfield{
+    margin: .5rem 0;
+    height: 2rem;
+}
+.inputlabel{
+    width: 5rem;
+    background-color: rgb(124, 70, 1);
+    font-size: 1.5rem;
+    padding: .5rem;
+    color: lightyellow;
+}
+.inputfield{
+    color: black;
+    position: relative;
+    right: 0;
+    height: 1.2rem;
+
+}
+#actions__container{
+    position: absolute;
+    bottom: 20%;
+    left: 20%;
+    width: 60%;
+    padding: .5rem .5rem;
+    background-color: rgb(124, 70, 1);
+    justify-content:space-around;
+}
+.action__buttons{
+    width: 25%;
+    font-size: 1.5rem;
+    color: black;
+}

@@ -1,0 +1,134 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    color: yellow;
+}
+body{
+    background-color: beige;
+}
+.container{
+    background-color: rgb(124, 34, 1);
+}
+nav{
+    display: grid;
+    grid-template-columns: 10% 50% 25% 10% 5%;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem .5rem;
+}
+.menubar>ul{
+    width: 100%;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10%, auto) ) ;
+    justify-content: center;
+}
+.menubar>ul>li>a{
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.searchbar{
+    background-color: yellow;
+    border: .1rem solid black;
+    justify-content: space-between;
+    padding: .1rem;
+    border-radius: 2%;
+}
+.searchbar> input{
+    width: 92%;
+    height: 1.8rem;
+    font-size: 1rem;
+    background-color: aliceblue;
+    border: none;
+    color: black;
+}
+
+.fa-search{
+    font-size: 1.3rem;
+    color: black;
+}
+.fa-search:hover{
+    cursor: pointer;
+}
+.storebar{
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+}
+.userprofile{
+    justify-items: center;
+}
+.userprofile>p{
+    font-size: .8rem;
+}
+.userprofile>div{
+    padding: .7rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: .01rem solid yellow;
+}
+.fas:hover{
+    cursor: pointer;
+}
+
+/* sign on form */
+
+#form__signon{
+    background-color: rgb(124, 34, 1);
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 60%;
+    height: 80%;
+    border-radius: 5%;
+}
+#form__signon>h3{
+    width: 80%;
+    border: .1rem solid white;
+}
+#data__container, #title_container{
+    position: relative;
+    left: 20%;
+}
+#title_container{
+    position: relative;
+    padding: .5rem;
+    width: 60%;
+    top: 20%;
+    background-color: rgb(124, 70, 1);
+    align-content: center;
+}
+#data__container{
+    width: 60%;
+    top: 25%;
+    padding: 1rem .5rem;
+    border: .1rem solid rgb(124, 70, 1);
+}
+.inputlabel, .inputfield{
+    margin: .5rem 0;
+    height: 2rem;
+}
+.inputlabel{
+    width: 5rem;
+    background-color: rgb(124, 70, 1);
+    font-size: 1.5rem;
+}
+.inputfield{
+    color: black;
+    position: relative;
+    right: 0;
+}
+#actions__container{
+    position: absolute;
+    bottom: 10%;
+    left: 20%;
+    width: 60%;
+    background-color: rgb(124, 70, 1);
+    justify-content:space-around;
+}
+.action__buttons{
+    width: 25%;
+    font-size: 1.5rem;
+    color: black;
+}
