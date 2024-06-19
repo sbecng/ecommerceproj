@@ -20,13 +20,14 @@ nav{
     width: 100%;
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10%, auto) ) ;
+    grid-template-columns: repeat(auto-fit, minmax(15%, auto) ) ;
     justify-content: center;
 }
 .menubar>ul>li>a{
     text-decoration: none;
     font-size: 1.2rem;
 }
+
 .searchbar{
     background-color: yellow;
     border: .1rem solid black;

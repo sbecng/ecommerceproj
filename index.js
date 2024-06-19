@@ -16,12 +16,14 @@ const bcrypt = require("bcrypt")
 const cors = require("cors")
 const mongodb = require("mongodb")
 const path = require("path")
-const multter = require("multer")
+const multer = require("multer")
 
 //use the dependencies
 //connect express engine to public
 server.use(express.static(path.join(__dirname,"public"))) //give server access to public folder in project root directory
 server.use(bodyParser.urlencoded({extended:false})) //give server access to use and parse messages with clients
+server.use(cookieParser())
+server.use(cors())
 
 //set the server to display the project's front end using ejs as view emgine
 server.set("view engine", "ejs")
@@ -89,7 +91,9 @@ server.post("/register", async(req, res) =>{
     };
 
 })
-
+server.get("/login", (req, res)=>{
+    res.render("login")
+})
 server.post("/login", async function(req, res){ //set up home route for the application
     const email = req.body.email.trim()
     const pwd = req.body.pwd.trim()
@@ -110,8 +114,63 @@ server.post("/login", async function(req, res){ //set up home route for the appl
 
 })
 
+// products image upload's middleware
+const storage = multer.diskStorage({
+    destination:function(req, file, cb){
+        cb(null, "public/products")
+    },
+    filename:function(req, file, cb){
+        cb(null, file.originalname)
+    }
+})
+var uploads = multer({storage:storage})
 
+// create a route that does the upload process
+server.post("/product-upload-single", uploads.single('uploaded-product'), async function(req, res, next){
+    console.log(req.file.size);
+    var response = "product image uploaded"
+    const img_name = req.file.filename.trim()
+    const pdtname = req.body.prodtitle.trim()
+    const pdtcat = req.body.prodcat.trim()
+    const pdtdesc = req.body.proddesc.trim()
+    const pdtprice = req.body.prodprice.trim()
+    const prodqty = req.body.prodqty.trim()
+    const products = {
+        img_name:img_name,
+        pdtname:pdtname,
+        pdtcat:pdtcat,
+        pdtdesc:pdtdesc,
+        pdtprice:pdtprice,
+        prodqty:prodqty
+    }
+    const feed = await _conn.db(dbname).collection("products").insertOne(products) 
+    if(feed){
+        res.status(200).send({
+            message:"product uploaded successfully",
+            type:"success"
+        })
+    }else{
+        res.send({
+            message:"unable to upload image"
+        })
+    }
+})
 
+// view all products route
+server.get("/product-view-all", async function(req, res){
+    const products__data = await _conn.db(dbname).collection("products").find().toArray()
+    if(products__data){
+        res.status(200).send({
+            message:"all products fetched",
+            type:"success",
+            products__data:products__data
+        })
+    }else{
+        res.status(401).send({
+            message:"no products available"
+        })
+    }
+})
 
 
 //jquey teaching rout
