@@ -21,45 +21,46 @@ function listOff(){
 const btn_upload__toCreate = document.querySelector("#upload__toCreate")
 btn_upload__toCreate.addEventListener("click", function(){
     let upload__form = document.querySelector("#admin__workpsace")
-    upload__form.innerHTML = `<form method="post" action="/product-upload-single" enctype="multipart/form-data">
-                                    <div id="form__header">
-                                        <h2>Product Upload Form</h2>
-                                    </div>
-                                    <div id="form__body">
-                                        <div id="form__controls">
-                                            <div id="product__upload" class="upload__fields">
-                                                <input type="file" name="uploaded-product" placeholder="upload product imaage here" required>
-                                            </div>
-                                            <div id="product__title" class="upload__fields">
-                                                <input type="text" name="prodtitle" placeholder="product title" required>
-                                            </div>
-                                            <select class="upload__fields" name="prodcat" required>
-                                                <option>Choose Product Category</option>
-                                                <option>Electronics</option>
-                                                <option>Fashions</option>   
-                                                <option>Groceries</option>
-                                            </select>
-                                            <div id="product__price" class="upload__fields">
-                                                <input type="number" name="prodprice" required placeholder="enter product price">
-                                            </div>
-                                            <div id="product__qty" class="upload__fields">
-                                                <input type="number" name="prodqty" required placeholder="enter product quantity">
-                                            </div>
-                                            <textarea cols="52" rows="10" name="proddesc" required autocomplete="on" placeholder="enter a product description">
-                                            
-                                            </textarea>
-                                            <div id="admin__actions" class="upload__fields">
-                                                <input type="submit" value="Upload" />
-                                                <input type="reset" value="reset"/>
-                                            </div>
-                                        </div>
-                                        <div id="form__display">
-                                            <figure>
-                                                <img src="" width="100%">
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </form>`
+    upload__form.innerHTML = `
+        <form method="post" action="/product-upload-single" enctype="multipart/form-data">
+            <div id="form__header">
+                <h2>Product Upload Form</h2>
+            </div>
+            <div id="form__body">
+                <div id="form__controls">
+                    <div id="product__upload" class="upload__fields">
+                        <input type="file" name="uploaded-product" placeholder="upload product imaage here" required>
+                    </div>
+                    <div id="product__title" class="upload__fields">
+                        <input type="text" name="prodtitle" placeholder="product title" required>
+                    </div>
+                    <select class="upload__fields" name="prodcat" required>
+                        <option>Choose Product Category</option>
+                        <option>Electronics</option>
+                        <option>Fashions</option>   
+                        <option>Groceries</option>
+                    </select>
+                    <div id="product__price" class="upload__fields">
+                        <input type="number" name="prodprice" required placeholder="enter product price">
+                    </div>
+                    <div id="product__qty" class="upload__fields">
+                        <input type="number" name="prodqty" required placeholder="enter product quantity">
+                    </div>
+                    <textarea cols="52" rows="10" name="proddesc" required autocomplete="on" placeholder="enter a product description">
+                    
+                    </textarea>
+                    <div id="admin__actions" class="upload__fields">
+                        <input type="submit" value="Upload" />
+                        <input type="reset" value="reset"/>
+                    </div>
+                </div>
+                <div id="form__display">
+                    <figure>
+                        <img src="" width="100%">
+                    </figure>
+                </div>
+            </div>
+        </form>`
 })
 
 //.........VIEW UPLOADED PRODUCTS............//
@@ -87,8 +88,9 @@ btn_upload__toCreate.addEventListener("click", function(){
                         let view__shelf = document.querySelector("#product__shelf")
 
                         //MAP FUNCTION
+                        var card_index = 1
                         data.map(function(item){
-
+                            var button_index = 0
                             view__shelf.innerHTML+= `
                                 <div id="product__card">
                                     <div id="card__image">
@@ -112,31 +114,73 @@ btn_upload__toCreate.addEventListener("click", function(){
                                             <p>${item.pdtprice}</p>
                                         </div> 
 
-                                        <div id="card__buttons">
-                                            <div id="add__buttons" class="icons" title="Add item">
-                                                <h3 id="add__text">Add Item</h3>
+                                        <div id="card__buttons" class="${card_index}">
+                                            <div id="add__buttons" class="icons ${button_index + 1}" title="Add item">
+                                                <p>Add Item</p>
                                                 <i id="btn__add" class="fas fa-cart-plus"></i>
                                             </div> 
-                                            <div id="edit__buttons" class="icons" title="Edit item">
-                                                <h3>Edit Item</h3>
+                                            <div id="edit__buttons" class="icons ${button_index + 2}" title="Edit item">
+                                                <p>Edit Item</p>
                                                 <i id="btn__edit" class="fas fa-edit"></i>
                                             </div> 
-                                            <div id="remove__buttons" class="icons" title="Remove item">
-                                                <h3>Remove Item</h3>
+                                            <div id="remove__buttons" class="icons ${button_index + 3}" title="Remove item">
+                                                <p>Remove Item</p>
                                                 <i id="btn__remove" class="fas fa-reply"></i>
                                             </div> 
                                         </div> 
 
                                     </div>
                                 </div>
-                            `                               
+                            `   
+                            card_index++   
+                            button_index++                     
                         })  
-                        // console.log($(""));
+                        // display Add, Edit and Remove Icons text on hover
                         $(function(){
-                            $(".fas").hover(function(){
-                                $("#add__buttons h3").css("display","block");
-                            });
+
+                            $("#card__buttons i").hover(function(i){
+                                //get hovered button element parent and grand parent
+                                var button_parent = $(this).parent().attr("class") 
+                                var button_grand = $(this).parent().parent().attr("class") 
+
+                                //iterate through button labels to get instance
+                                $(`#card__buttons p`).each(function(j){
+
+                                    //get button label (p) element parent and grand parent
+                                    var txt_parent = $(this).parent().attr("class") 
+                                    var txt_grand = $(this).parent().parent().attr("class") 
+
+                                    //display right label if has same parent and grand as button
+                                    if(button_grand==txt_grand && button_parent==txt_parent){
+                                        $(this).css("display","block");
+                                    }
+
+                                })
+
+                                //hide all labels on mouse leaving any button
+                                $(this).mouseleave(function(){
+                                    $("#card__buttons p").hide()
+                                });
+
+                            })
+
                         })
+
+                        //.........ADD ITEMS TO PRODUCTS............//
+                        $("#btn__add").click(function(){
+                            let admin__back = document.querySelector("#admin__workpsace")
+                            const add_page = document.createElement("div");
+                            add_page.setAttribute("id","overlay")
+                            admin__back.appendChild(add_page);
+                            let overlay = document.querySelector("#overlay")
+
+                            overlay.innerHTML = `
+                                <div id="additem__page">
+                                
+                                </div> 
+                                 `
+                            let view__shelf = document.querySelector("#product__shelf")
+                        });
                     })
                     
                 }else{
@@ -144,7 +188,7 @@ btn_upload__toCreate.addEventListener("click", function(){
                 }
             }
         })
-        const additem_btn = document.body.getElementById("#btn__add")
+        // const additem_btn = document.body.getElementById("#btn__add")
         
 
     })
@@ -214,19 +258,3 @@ btn_upload__toCreate.addEventListener("click", function(){
 
 //         }
 //     })
-
-//.........ADD ITEMS TO PRODUCTS............//
-
-
-
-// $(additem_btn).click(function(){
-//     let admin__back = document.querySelector("#admin__workpsace")
-//     admin__back.innerHTML= "Test"
-//     // admin__back.appendChild = `
-//     //     <div id="transparent__back">
-//     //          <div id="additem__page">
-            
-//     //         </div> 
-//     //     </div> `
-//     // let view__shelf = document.querySelector("#product__shelf")
-// });

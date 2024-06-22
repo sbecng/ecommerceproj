@@ -141,7 +141,7 @@ nav{
 }
 #admin__sidebar{
     width: 20%;
-    height: 90%;
+    height: auto;
     position: absolute;
     top: 10%;
     background-color: black;
@@ -334,7 +334,9 @@ summary{
     display: flex;
     justify-content: right;
 }
-.icons> h3{
+.icons> p{
+    color: chocolate;
+    font-style: italic;
     width: auto;
     text-wrap: nowrap;
     margin-right: 5px;
@@ -346,9 +348,9 @@ summary{
     color: darkgray;
     margin-bottom: 10px;
 }
-#card__buttons> h3{
+/* #card__buttons> p{
     display: none;
-}
+} */
 
 #card__buttons> .icons> .fas:hover{
     display: block;
@@ -357,10 +359,23 @@ summary{
     margin-bottom: 10px;
 }
 
-#transparent__back{
-    width: 100vw;
-    height: 100vw;
+#overlay{
+    width: 100%;
+    height: 100%;
     background-color: grey;
+    opacity: 0.9;
+    position: absolute;
+    margin: 0;
+    top: 0;
+    left: 0;
+}
+
+#additem__page{
+    width: 60%;
+    height: 500px;
+    background-color: black;
+    opacity: 1;
+    margin: 5% auto;
 }
 
 /* #card__buttons #add__buttons #btn__add:hover{
