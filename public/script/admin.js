@@ -161,13 +161,13 @@ btn_upload__toCreate.addEventListener("click", function(){
                                 $(this).mouseleave(function(){
                                     $("#card__buttons p").hide()
                                 });
-
+                                
                             })
-
+                            
                         })
 
                         //.........ADD ITEMS TO PRODUCTS............//
-                        $("#btn__add").click(function(){
+                        $("#card__buttons i").click(function(){
                             let admin__back = document.querySelector("#admin__workpsace")
                             const add_page = document.createElement("div");
                             add_page.setAttribute("id","overlay")
@@ -187,10 +187,7 @@ btn_upload__toCreate.addEventListener("click", function(){
                     console.log("No products found in database...");
                 }
             }
-        })
-        // const additem_btn = document.body.getElementById("#btn__add")
-        
-
+        })        
     })
 
    
