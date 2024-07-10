@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <!-- <script src="views/nav.ejs"></script>  -->
-        <!-- <nav class="navbar" id="nav-placeholder">
-            
-        </nav> -->
-        <nav class="navbar">
+
+class NavPlaceholder extends HTMLElement{
+    connectedCallback(){
+        this.innerHTML = `
             <div class="logo">
                 <img src="/assets/SBO Logo.png" alt="company Logo" width="50">
             </div>
-        
+
             <div class="menubar">
                 <ul class="menuitems">
                     <li><a href="">Home</a></li>
@@ -48,16 +37,8 @@
                 <span class="line"></span>
                 <span class="line"></span>
             </div>
-        </nav>
-    </div>
+        `
+    }
+}
 
-    <div id="users__shopfloor">
-
-    </div>
-
-    <script src="https://kit.fontawesome.com/434d831d58.js" crossorigin="anonymous"></script>
-    <script src="script/jquery.js"></script>
-    <script src="script/home.js"></script>
-    <script src="script/navbar.js"></script>  
-</body>
-</html>
+customElements.define('nav-placeholder', NavPlaceholder)

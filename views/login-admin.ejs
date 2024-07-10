@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/login.css">
-    <title>Login</title>
+    <title>Login Admin</title>
 </head>
 <body>
     <div class="container">
-        <form action="/login" method="post" name="form__signon" id="form__signon">
+        <form action="/login-admin" method="post" name="form__loginadmin" id="form__loginadmin">
             <div id="title_container">
-                <h2>User Login</h2>
+                <h2>Login Admin</h2>
             </div>
             <div id="data__container">
 
-                <p id="alert"><%= message %></p> 
+                <p id="alert-admin"><%= message %></p>  
 
                 <div class="formfield" id="email">
-                    <label for="" class="inputlabel_user">Email</label>
+                    <label for="" class="inputlabel">Email</label>
                     <input type="text" class="inputfield" name="email" id="input__email">
                 </div>
                 <div class="formfield" id="pwd">
-                    <label for="" class="inputlabel_user">Password</label>
+                    <label for="" class="inputlabel">Password</label>
                     <input type="password" class="inputfield" name="pwd" id="input__pwd">
                 </div>
 

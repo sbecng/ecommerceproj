@@ -4,55 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Register</title>
+    <title>Register Admin</title>
 </head>
 <body>
     <div class="container">
-        <form action="" method="post" name="form__signon" id="form__signon">
+        <form action="/register-admin" method="post" name="admin__signon" id="admin__signon">
             <div id="title_container">
-                <h2>User Sign-On</h2>
+                <h2>Admin Registration</h2>
             </div>
             
             <div id="data__container">
-                
-                <p id="alert"><%= message %></p> 
-                
+
+                <p id="alert-admin"><%= message %></p> 
+
                 <div class="formfield" id="fiestname">
-                    <label for="" class="inputlabel-user">First Name</label>
+                    <label for="" class="inputlabel">First Name</label>
                     <input type="text" class="inputfield" name="firstname" id="input__firstname">
                 </div>
                 <div class="formfield" id="lastname">
-                    <label for="" class="inputlabel-user">Last Name</label>
+                    <label for="" class="inputlabel">Last Name</label>
                     <input type="text" class="inputfield" name="lastname" id="input__lastname">
                 </div>
                 <div class="formfield" id="email">
-                    <label for="" class="inputlabel-user">Email</label>
+                    <label for="" class="inputlabel">Email</label>
                     <input type="text" class="inputfield" name="email" id="input__email">
                 </div>
                 <div class="formfield" id="pwd">
-                    <label for="" class="inputlabel-user">Password</label>
+                    <label for="" class="inputlabel">Password</label>
                     <input type="password" class="inputfield" name="pwd" id="input__pwd">
                 </div>
                 <div class="formfield" id="cpwd">
-                    <label for="" class="inputlabel-user">Confirm Password</label>
+                    <label for="" class="inputlabel">Confirm Password</label>
                     <input type="password" class="inputfield" name="cpwd" id="input__cpwd">
                 </div>
             </div>
-
            <div id="actions__container">
                 <input type="button" value="Cancel" class="action__buttons">
-                <input type="submit" id="validate" value="Submit" class="action__buttons">
+                <input type="submit" value="Submit" class="action__buttons">
            </div>
-
-            <p id="registered">Already registered? <a href="/login">Login</a> instead.</p>
-
         </form>
-
     </div>
-
     <script src="/script/jquery.js"></script>
-    <!-- <script src="/server/routes/home.js"></script> -->
-    <script src="/script/register.js"></script>
-
+    <script src="/server/routes/home.js"></script>
 </body>
 </html>

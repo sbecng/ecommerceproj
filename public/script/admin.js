@@ -61,6 +61,11 @@ btn_upload__toCreate.addEventListener("click", function(){
                 </div>
             </div>
         </form>`
+        
+        const uploadedfile = document.querySelector("#product__upload input")
+        uploadedfile.addEventListener("change", function(e){
+            // $("#form__display>figure>img").setAttribute("src") = e.target.files[0]
+        })
 })
 
 //.........VIEW UPLOADED PRODUCTS............//
@@ -75,12 +80,12 @@ btn_upload__toCreate.addEventListener("click", function(){
             success:function(feedback){
                 if(feedback.type === "success"){
                     let data = feedback.products__data
-                    console.log(data);
+                    // console.log(data);
 
                     const btn_view__toCreate = document.getElementById("view__toCreate")
                     btn_view__toCreate.addEventListener("click", function(){
                         let admin__space = document.getElementById("admin__workpsace")
-                        console.log(admin__space);
+                        // console.log(admin__space);
                         admin__space.innerHTML = `
                             <div id="product__shelf">
 
@@ -166,20 +171,92 @@ btn_upload__toCreate.addEventListener("click", function(){
                             
                         })
 
-                        //.........ADD ITEMS TO PRODUCTS............//
-                        $("#card__buttons i").click(function(){
+                        //.........CRUD activities............//
+                        $("#card__buttons i").click(function(e){
+
+                            //get hovered button element parent and grand parent
+                            var button_parent = $(this).parent().attr("class") 
+                            var button_grand = $(this).parent().parent().attr("class") 
+                            var itemimg_div = $(this).parent().parent().parent().parent().attr("id") 
+                            const card__buttons_instance = document.querySelector("#"+itemimg_div+" img")
+                            // const instance_img = card__buttons_instance.attr("src")
+
                             let admin__back = document.querySelector("#admin__workpsace")
                             const add_page = document.createElement("div");
                             add_page.setAttribute("id","overlay")
                             admin__back.appendChild(add_page);
                             let overlay = document.querySelector("#overlay")
+                            
+                            console.log(e.target,e.parent);
 
                             overlay.innerHTML = `
-                                <div id="additem__page">
-                                
-                                </div> 
-                                 `
-                            let view__shelf = document.querySelector("#product__shelf")
+                            <div id="additem__page">
+                                    
+                                <div id="display">
+                                    <img src="${card__buttons_instance.src}" />
+                                    <div>
+                                        <h1>"${card__buttons_instance.title}"</h1>
+                                    </div>
+                                </div>
+
+                                <div id="operate">
+                                    Buttons here
+                                </div>
+                            
+                            </div> 
+                                `
+
+                            
+                            // $(`#card__buttons p`).each(function(j){
+                            //     var srch_parent = $(this).parent().attr("class") 
+                            //     var srch_grand = $(this).parent().parent().attr("class") 
+                            //     var srchitemimg_div = $(this).parent().parent().parent().parent().attr("id") 
+                            //     const card__buttons_instance = document.querySelector("#"+srchitemimg_div+" img")
+                            //     //Add item
+                            //     if($(this).html()==="Add Item" && $(this).parent().attr("class")===button_parent && $(this).parent().parent().attr("class")===button_grand){
+                            //         // console.log($(this).html(),button_parent,button_grand,card__buttons_instance);
+                            //         // const item_img = $(this).
+                            //         overlay.innerHTML = `
+                            //         <div id="additem__page">
+                                    
+                            //         </div> 
+                            //          `
+                            //     };
+
+                            //     //Edit item
+                            //     if($(this).html()==="Edit Item" && $(this).parent().attr("class")===button_parent && $(this).parent().parent().attr("class")===button_grand){
+                            //         // console.log($(this).html(),button_parent,button_grand);
+                            //         overlay.innerHTML = `
+                            //         <div id="edititem__page">
+                                    
+                            //         </div> 
+                            //             `
+                            //     };
+
+                            //     //Remove item
+                            //     if($(this).html()==="Remove Item" && srch_parent===button_parent && srch_grand===button_grand){
+                                    
+                            //         console.log(srchitemimg_div, card__buttons_instance);
+                            //         overlay.innerHTML = `
+                            //         <div id="additem__page">
+                                         
+                            //             <div id="display">
+                            //                 <img src="${card__buttons_instance.src}" />
+                            //                 <div>
+                            //                     <h1>"${card__buttons_instance.title}"</h1>
+                            //                 </div>
+                            //             </div>
+
+                            //             <div id="operate">
+                            //                 Buttons here
+                            //             </div>
+                                   
+                            //         </div> 
+                            //             `
+                            //     };
+                            // });
+                            
+
                         });
                     })
                     

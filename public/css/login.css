@@ -1,4 +1,4 @@
-
+/*-------------- USER FORM ------------------*/
 #form__signon{
     background-color: rgb(124, 34, 1);
     position: absolute;
@@ -31,13 +31,13 @@
     padding: 1rem .5rem;
     border: .1rem solid rgb(124, 70, 1);
 }
-.inputlabel, .inputfield{
+.inputlabel_user, .inputfield{
     margin: .5rem 0;
     height: 2rem;
 }
-.inputlabel{
+.inputlabel_user{
     width: 5rem;
-    background-color: rgb(124, 70, 1);
+    /* background-color: rgb(124, 70, 1); */
     font-size: 1.5rem;
     padding: .5rem;
     color: lightyellow;
@@ -46,7 +46,8 @@
     color: black;
     position: relative;
     right: 0;
-    height: 1.2rem;
+    height: 1.5rem;
+    width: 50%;
 
 }
 #actions__container{
@@ -56,10 +57,96 @@
     width: 60%;
     padding: .5rem .5rem;
     background-color: rgb(124, 70, 1);
-    justify-content:space-around;
+    text-align:center;
 }
 .action__buttons{
     width: 25%;
     font-size: 1.5rem;
     color: black;
+}
+#alert{
+    font-size: 1rem;
+    font-style: italic;
+    color:  yellow;
+    position: relative;
+    text-align: center;
+}
+
+/* ---------------- ADMIN FORM  ------------------*/
+
+#form__loginadmin{
+    background-color: lightgray;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 60%;
+    height: 80%;
+    border-radius: 5%;
+}
+#form__loginadmin>h3{
+    width: 80%;
+    border: .1rem solid white;
+}
+#data__container, #title_container{
+    position: relative;
+    left: 20%;
+}
+#title_container{
+    position: relative;
+    padding: .5rem;
+    width: 60%;
+    top: 20%;
+    background-color: rgb(124, 70, 1);
+    align-content: center;
+    color: lightyellow;
+}
+#data__container{
+    width: 60%;
+    top: 25%;
+    padding: 1rem .5rem;
+    border: .1rem solid rgb(124, 70, 1);
+    overflow: auto;
+}
+.inputlabel, .inputfield{
+    margin: .5rem 0;
+    height: 2rem;
+}
+.inputlabel{
+    width: 5rem;
+    /* background-color: lightgray; */
+    font-size: 1.5rem;
+    padding: .5rem;
+    color: rgb(124, 70, 1);
+}
+.formfield{
+    text-align: right;
+    padding-right: 50px;
+}
+.inputfield{
+    color: black;
+    position: relative;
+    right: 0;
+    height: 1.5rem;
+    width: 50%;
+}
+#actions__container{
+    position: absolute;
+    bottom: 20%;
+    left: 20%;
+    width: 60%;
+    padding: .5rem .5rem;
+    background-color: rgb(124, 70, 1);
+    text-align:center;
+}
+.action__buttons{
+    width: 25%;
+    font-size: 1.5rem;
+    color: black;
+}
+#alert-admin{
+    font-size: 1.5rem;
+    font-style: italic;
+    color:  red;
+    position: relative;
+    text-align: center;
 }
