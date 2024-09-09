@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <link rel="stylesheet" href="/css/admin.css">
+    <title>sbec.ng Editing</title>
+</head>
+<body>
+    
+    <!-- the navbar -->
+    <%- include('nav',{'profileroute':"/logout-admin", 'label':'Log Out'}); %>
+
+    
+    <!-- the sidebar -->
+
+
+    <!-- the editing form -->
+    <div id="admin__workpsace">
+        <form method="PUT" action="/admin-editproduct" enctype="multipart/form-data" name="editform">
+
+            <div id="form__header">
+                <h2>Product Update Form</h2>
+            </div>
+            <div id="form__body">
+                <div id="form__controls">
+                    <div id="product__upload" class="upload__fields">
+                        <input type="file" value="${feedback.img_name}" name="uploaded-product" placeholder="upload product imaage here" required>
+                    </div>
+
+                    <div id="product__title" class="upload__fields">
+                        <input type="text" value="${feedback.pdtname}" name="prodtitle" placeholder="product title" required>
+                    </div>
+
+                    <select id="product__cat" class="upload__fields" value="${feedback.pdtcat}" name="prodcat" required>
+                        <option>${feedback.pdtcat}</option>
+                        <option>Electronics</option>
+                        <option>Fashions</option>   
+                        <option>Groceries</option>
+                    </select>
+
+                    <label>Describe the product below...</label>
+                    <textarea id="product__desc" cols="" rows="10" value="${feedback.pdtdesc}" name="proddesc" class="upload__fields" required autocomplete="on" placeholder="enter a product description">
+                    </textarea>
+
+                    <div id="product__price" class="upload__fields">
+                        <input type="number" value="${feedback.pdtprice}" name="prodprice" required placeholder="enter product price">
+                    </div>
+
+                    <div id="product__qty" class="upload__fields">
+                        <input type="number" value="${feedback.prodqty}" name="prodqty" required placeholder="enter product quantity">
+                    </div>
+
+                </div>
+
+                <div id="admin__actions" >
+                    <div class="form_buttons">
+                        <input type="submit" id="updateSubmit_btn" name="${feedback.pdtname}" value="Update" />
+                        <input type="reset" value="Reset"/>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <!-- scriptings -->
+    <script src="https://kit.fontawesome.com/434d831d58.js" crossorigin="anonymous"></script>
+    <script src="script/jquery.js"></script>   
+    <script src="script/admin.js"></script> 
+
+</body>
+</html>

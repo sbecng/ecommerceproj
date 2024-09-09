@@ -1,0 +1,52 @@
+<div id="admin__sidebar">
+        
+        <div id="admin_title">
+            <p><a class="close_adminSidebar">&times</a></p>
+            <h1>Admin Dashboard</h1>
+        </div>
+
+        <div id="search__sidebar">
+
+        </div>
+        <fieldset id="maintain__sidebar">
+            <legend>MAINTAIN PAGES</legend>
+            <ul class="sidebar__lists" id="maintain__list">
+                <div id="prod_create" class="list_collapse">
+                    <h3 id="subtitle1" class="maintainlist_titles all_sidebar_lists">Create Product...</h3>
+                    <ul class="list__hidden" id="hide__create">
+                        <li id="view__toCreate" onClick="getAllProducts()"><a href="#">View</a></li>
+                        <li id="upload__toCreate" onClick="form_uploadCat_List()"><a href="#">Upload</a></li>
+                    </ul>
+                </div>
+                <div id="prod_update" class="list_collapse">
+                    <h3 id="subtitle2" class="maintainlist_titles all_sidebar_lists" onClick="createNewCategory()">Create Categories</h3>
+                </div>
+                <!-- <div id="prod_edit" class="list_collapse">
+                    <a href="/admin-editproduct" class="sidebar_href"> 
+                        <h3 id="subtitle3" onClick="editAProduct()" class="maintainlist_titles all_sidebar_lists">Edit Product</h3>
+                    </a>
+                </div> -->
+                <div id="prod_delete" class="list_collapse">
+                    <h3 id="subtitle4" class="maintainlist_titles all_sidebar_lists">Delete All Products</h3>
+                </div>
+            </ul>
+        </fieldset>
+        <fieldset id="view__sidebar">
+            <legend>VIEW CATEGORIES</legend>
+            <ul class="sidebar__lists" id="view__list">
+
+                <!-- <li><a href="" class="all_sidebar_lists">Electronics Products</a></li>
+                <li><a href="" class="all_sidebar_lists">Wears Product</a></li>
+                <li><a href="" class="all_sidebar_lists">Groceries Product</a></li> -->
+
+            </ul>
+        </fieldset>
+        <fieldset id="settings__sidebar">
+            <legend>SETTINGS</legend>
+            <ul class="sidebar__lists" id="settings__list">
+                <li><a href="" class="all_sidebar_lists">Manage Admin Profiles</a></li>
+                <!-- <li><a href="" class="all_sidebar_lists">Themes</a></li> -->
+            </ul>
+        </fieldset>
+    </div>
+ 

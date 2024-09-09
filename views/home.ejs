@@ -4,57 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Document</title>
+    <title>sbec.ng</title>
 </head>
 <body>
-    <div class="container">
-        <!-- <script src="views/nav.ejs"></script>  -->
-        <!-- <nav class="navbar" id="nav-placeholder">
-            
-        </nav> -->
-        <nav class="navbar">
-            <div class="logo">
-                <img src="/assets/SBO Logo.png" alt="company Logo" width="50">
+    <!-- the navbar -->
+    <%- include('nav',{'profileroute':"/register", 'label':'Register'}); %>
+
+    <!-- page container -->
+     <div id="client_container" class="client_container">
+
+        <!-- left-sidebar -->
+        <div class="left-sidebar big-sidebasr">
+            <div id="left-sidebar_title">
+                <p class="close_left_sidebar">&times</p>
+                <h1>Useful Links</h1>
             </div>
-        
-            <div class="menubar">
-                <ul class="menuitems">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Products</a></li>
-                    <li><a href="">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="searchbar hide-search">
-                <input type="text" name="" id="">
+
+            <div id="search__left-sidebar">
                 <i class="fas fa-search"></i>
+                <input type="text" id="inp_srch_leftbar">
             </div>
-            <div class="storebar">
-                <div class="alert">
-                    <i class="fas fa-bell"></i>
-                </div>
-                <div class="cart">
-                    <i class="fas fa-cart-arrow-down"></i>
-                </div>
+            
+            <fieldset id="view__left-sidebar">
+                <legend>VIEW BY CATEGORIES</legend>
+                <ul class="left_sidebar_lists" id="view__list">
+
+                </ul>
+            </fieldset>    
+        </div>
+        <div class="sml-sidebasr">
+            <p class="open_left_sidebar">&#9776;</p> 
+            <br>
+            <br>
+            <i class="fas fa-search"></i>
+            <br>
+            <br>
+            <fieldset id="view__left-sidebar">
+                <legend>VIEW</legend>
+
+            </fieldset>
+        </div>
+
+        <!-- the shopfloor -->
+        <div id="users__shopfloor">
+            
+
+        </div>
+
+        <!-- shopping cart -->
+        <div class="cart big-cart">
+            <div class="cart-btns">
+                <p class="cart-checkout">Check Out</p>
+                <p class="close_big_cart">&times;</p> 
             </div>
-            <a href="/register">
-                <div class="userprofile">
-                    <div><i class="fas fa-user-tie"></i></div>
-                    <p>Register</p>
-                </div>
-            </a>
-            <div class="hamburger-menu">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
+
+            <P class="cart_title">Shopping Cart</P>
+            
+            <div class="trays">
+
             </div>
-        </nav>
-    </div>
 
-    <div id="users__shopfloor">
+        </div>
+     </div>
 
-    </div>
-
+    <!-- scriptings -->
     <script src="https://kit.fontawesome.com/434d831d58.js" crossorigin="anonymous"></script>
     <script src="script/jquery.js"></script>
     <script src="script/home.js"></script>

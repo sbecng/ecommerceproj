@@ -50,11 +50,16 @@ nav{
     font-size: 1.2rem;
     display: flex;
 }
+.menubar>ul>li:hover{
+    border-bottom: .1rem solid yellow;
+}
 .menubar>ul>li>a{
     text-decoration: none;
     font-size: 1.2rem;
 }
-
+.menubar>ul>li>a:hover{
+    color: silver;
+}
 .searchbar{
     background-color: yellow;
     border: .1rem solid black;
@@ -98,6 +103,15 @@ nav{
 }
 .fas:hover{
     cursor: pointer;
+    color: silver;
+}
+.storebar-fas:hover{
+    /* cursor: pointer;
+    color: silver; */
+    border: .05rem solid silver;
+    border-radius: 50%;
+    padding: .25rem;
+
 }
 
 /* ---------USER Registration --------------------- */
@@ -213,34 +227,215 @@ nav{
     position: relative;
     text-align: center;
 }
+/* ................shopfloor container............ */
+#client_container{
+    display: flex;
 
+}
+.left-sidebar{
+    width: 20%;
+    margin-right: 1%;
+    padding-left: 1%;
+    background-color: bisque;
+}
+.sml-sidebasr{
+    width: 3%;
+    background-color: bisque;
+    color: darkred;
+    text-align: center;
+    display: none;
+}
+.sml-sidebasr .fa-search,.sml-sidebasr legend{
+    color: gray;
+    font-size: .8rem;
+}
+.left-sidebar div> h1{
+    color: darkred;
+    width: 90%;
+}
+.left_sidebar_lists li{
+    color: darkred;
+    list-style: none;
+    margin: 1rem 0;
+}
+.left_sidebar_lists li:hover{
+    border-bottom: .1rem solid darkred;
+    cursor: pointer;
+}
+.left_sidebar_lists li a{
+    color: darkred;
+    list-style: none;
+    font-size: 1.1rem;
+}
+.left_sidebar_lists li a:hover{
+    color: grey;
+}
+#users__shopfloor{
+    width: auto;
+}
+.close_left_sidebar{
+    font-size: 2.5rem;
+    margin-left: 85%;
+    color: darkred;
+}
+.open_left_sidebar{
+    font-size: 2rem;
+    color: darkred;
+}
+.close_left_sidebar:hover,.open_left_sidebar:hover{
+    cursor: pointer;
+    color: gray;
+}
+legend{
+    color: darkred;
+}
+#search__left-sidebar,#view__left-sidebar{
+    width: 95%;
+    border: .002rem solid silver;
+    padding: 2%;
+    border-radius: 10px;
+    margin-top: 5%;
+    color: darkred;
+}
+#search__left-sidebar{
+    display: flex;
+}
+#search__left-sidebar i{
+    color: darkred;
+}
+#search__left-sidebar input{
+    width:90%;
+    background: transparent;
+    border: none;
+}
+
+/* ...........shopping cart........... */
+.big-cart{
+    width: 25%;
+    /* display: none; */
+    background-color: antiquewhite;
+    /* position: fixed; */
+    /* inset: 0 0 0 auto; */
+    overflow-wrap: normal;
+}
+.trays_container{
+    width: 100%;
+    /* display: none; */
+    background-color: antiquewhite;
+    /* position: fixed; */
+    /* inset: 0 0 0 auto; */
+    overflow-wrap: normal;   
+}
+.cart_title{
+    color: darkred;
+    font-size: 1.5rem;
+    padding: .5rem;
+    border-bottom: .2rem solid darkred;
+}
+.cart-btns{
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 1rem;
+}
+.cart-checkout{
+    background-color: darkred;
+    color: silver;
+    border-radius: 10px;
+    padding: .5rem;
+    margin-left: .5rem;
+    cursor: pointer;
+}
+.close_big_cart{
+    font-size: 2rem;
+    /* width: 100%; */
+    font-weight: bolder;
+    color: darkred;
+    /* margin-left: 80%; */
+}
+.close_big_cart:hover{
+    color: gray;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.cartholr{
+    color: white;
+}
+.product_tray{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(24%,auto));
+    gap: 10px;
+    padding: 5%;
+    border-bottom: .1rem solid darkred;
+    overflow-wrap: normal;
+}
+.tray_img img{
+    width: 50px;
+}
+.tray_qty{
+    display: flex;
+}
+.tray_items{
+    color: gray;
+    margin-right: .5rem;
+    align-content: center;
+
+}
+.qty{
+    align-content: center;
+    color: black;
+}
+.minus,.plus {
+    font-size: 1.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    font-weight: bolder;
+    background-color: gray;
+    color: white;
+    border-radius:5px;
+    margin: .2rem;
+    cursor: pointer;
+    padding-left: .2rem;
+    align-self: center;
+}
 /* ----------------------Users Shopfloor-------------------- */
 
 /* Display all products */
+#users__shopfloor{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15%, auto) ) ;
+
+}
 #product__shelf{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fit, minmax(20%, auto) ) ;
+
     gap: 10px;
+    position: relative;
+
 }
-#product__shelf, #product__card{
+#product__shelf, .product__card{
     color: black;
     background-color: white;
     padding: 10px;
 }
-#product__card{
+.product__card{
     width: 100%;
     border-top: 1rem solid darkgray;
     margin-right: 10px;
     display: flex;
 }
 
-#product__card> div h3 {
+.product__card> div h3 {
     color: black;
 }
-#product__card> div p{
+.product__card> div p,div span{
     color: black;
 }
-#product__card> div> div summary {
+.product__card> div> div summary {
     color: black;
 }
 
@@ -255,10 +450,12 @@ summary{
 }
 #prodimg{
     margin: 10px;
+    filter: drop-shadow(0 10px 20px #0009);
 }
+
 #card__image img,figcaption> h3, #card__image img,figcaption>p{
     text-align: center;
-    width: 200px;
+    width: 100%;
 }
 #card__details{
     position: relative;

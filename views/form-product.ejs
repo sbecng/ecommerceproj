@@ -1,0 +1,40 @@
+
+<form method="PUT" action="/admin-editproduct" enctype="multipart/form-data">
+    <div id="form__header">
+        <h2><%= label %></h2>
+    </div>
+    <div id="form__body">
+        <div id="form__controls">
+            <div id="product__upload" class="upload__fields">
+                <input type="file" name="uploaded-product" placeholder="upload product imaage here" required>
+            </div>
+            <div id="product__title" class="upload__fields">
+                <input type="text" name="prodtitle" placeholder="product title" required>
+            </div>
+            <select class="upload__fields" name="prodcat" required>
+                <option>Choose Product Category</option>
+                <option>Electronics</option>
+                <option>Fashions</option>   
+                <option>Groceries</option>
+            </select>
+            <div id="product__price" class="upload__fields">
+                <input type="number" name="prodprice" required placeholder="enter product price">
+            </div>
+            <div id="product__qty" class="upload__fields">
+                <input type="number" name="prodqty" required placeholder="enter product quantity">
+            </div>
+            <textarea cols="35%" rows="10" name="proddesc" required autocomplete="on" placeholder="enter a product description">
+            
+            </textarea>
+            <div id="admin__actions" class="upload__fields">
+                <input type="submit" value="Upload" />
+                <input type="reset" value="reset"/>
+            </div>
+        </div>
+        <div id="form__display">
+            <figure>
+                <img src="" width="100%">
+            </figure>
+        </div>
+    </div>
+</form>`

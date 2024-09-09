@@ -7,6 +7,9 @@
     <title>Register Admin</title>
 </head>
 <body>
+    <!-- the navbar -->
+    <%- include('nav',{'profileroute':"/logout-admin", 'label':'Log Out'}); %>
+    <!-- registration form -->
     <div class="container">
         <form action="/register-admin" method="post" name="admin__signon" id="admin__signon">
             <div id="title_container">
@@ -44,6 +47,8 @@
            </div>
         </form>
     </div>
+    <!-- scripting -->
+    <script src="https://kit.fontawesome.com/434d831d58.js" crossorigin="anonymous"></script>
     <script src="/script/jquery.js"></script>
     <script src="/server/routes/home.js"></script>
 </body>

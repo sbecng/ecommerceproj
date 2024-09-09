@@ -16,23 +16,45 @@ nav{
     align-items: center;
     padding: .5rem .5rem;
 }
+#nav-placeholder{
+    display: grid;
+    grid-template-columns: 10% 50% 25% 10% 5%;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem .5rem;
+}
+.hamburger-menu{
+    padding-right: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger-menu .line{
+    display: none;
+    width:2.5rem;
+    height: 2px;
+    margin-bottom: 10px;
+    background-color: yellow;
+    cursor: pointer;
+
+}
 .menubar>ul{
     width: 100%;
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10%, auto) ) ;
+    grid-template-columns: repeat(auto-fit, minmax(15%, auto) ) ;
     justify-content: center;
+}
+.menubar>ul>li{
+    list-style: none;
+    font-size: 1.2rem;
+    display: flex;
 }
 .menubar>ul>li>a{
     text-decoration: none;
     font-size: 1.2rem;
 }
-/* .menubar>ul>li>a:hover{
-    background-color: yellow;
-    color:  rgb(124, 34, 1;
-    padding: .2rem;
-    border-radius: 10px;
-} */
+
 
 .searchbar{
     background-color: yellow;
@@ -139,6 +161,8 @@ nav{
     font-size: 1rem;
     color: black;
 }
+
+/* admin sidebar------------------------- */
 #admin__sidebar{
     width: 20%;
     height: auto;
@@ -148,11 +172,23 @@ nav{
     padding: .2rem;
 }
 #admin_title{
-    display: flex;
     margin: .2rem;
+}
+#admin_title > p{
+    margin: .2rem;
+    position: relative;
+}
+.close_adminSidebar{
+    font-size: 3rem;
+    margin-left: 90%;
+}
+.close_adminSidebar:hover{
+    color: beige;
+    cursor: pointer;
 }
 #admin__sidebar>#admin_title>h1{
     color: beige;
+    font-size: 2rem;
 }
 #admin__sidebar>#admin_title .fas{
     font-size: 2rem;
@@ -175,6 +211,7 @@ nav{
     padding: .5rem;
     margin: 1rem 0;
 }
+
 .sidebar__lists> .list_collapse> li{
     padding: .5rem;
     list-style: none;
@@ -183,8 +220,22 @@ nav{
     text-decoration: none;
     color: beige;
 }
+.all_sidebar_lists{
+    color: beige;
+    padding: .5rem;
+    text-decoration: none;
+    list-style: none;
+}
+.all_sidebar_lists:hover{
+    cursor: pointer;
+    color: gray;
+}
+
 .list__hidden{
     display: none;
+}
+.list__hidden, li{
+    padding: .5rem 0;
 }
 .list__hidden> li> a{
     text-decoration: none;
@@ -195,15 +246,7 @@ nav{
     padding: .2rem;
     border-radius: 5px;
 }
-#view__sidebar> #view__list > li, #settings__sidebar > #settings__list > li{
-    padding: .5rem;
-    list-style: none;
-    color: beige;
-}
-#view__sidebar> #view__list > li > a, #settings__sidebar > #settings__list > li> a {
-    text-decoration: none;
-    color: beige;
-}
+
 #subtitle1{
     cursor: pointer;
     color: beige;
@@ -212,13 +255,40 @@ nav{
     display: block;
 }
 
-/* admin__workspace Upload__form */
+.manage_catFields{
+    display: flex;
+    width: auto;
+    justify-content: space-between;
+}
+.catFields{
+    width: 100%;
+}
+.catBtns>input{
+    width: 20%;
+}
+.catBtns>input:hover{
+    cursor: pointer;
+}
+#admin__actions>input{
+    align-content: center;
+}
+.li_viewlist a{
+    color: beige;
+    font-size: 1.2rem;
+}
+.li_viewlist a:hover{
+    color: gray;
+}
+/* Upload__form------------------------ */
 #admin__workpsace{
-    width: 70%;
+    width: 80%;
     position: absolute;
-    left: 25%;
-    margin-top: 2rem;
-    /* background-color: lightgray; */
+    left: 20%;
+    top: 10%;
+    /* margin-top: 2rem; */
+}
+#form__body{
+    display: block;
 }
 #admin__workpsace> form{
     color: chocolate;
@@ -227,26 +297,61 @@ nav{
     padding: 2rem;
     display: block;
 }
-#form__body{
-    /* display: flex; */
+#form__header{
+    width: 90%;
+    border-bottom: .5rem solid wheat;
+    border-radius: 10px;
+    padding: 1rem;margin: 5% auto;
 }
 #form__controls, #form__display{
-    width: auto;
+    width: 90%;
     border: .025rem solid gray;
     border-radius: 10px;
     padding: 1rem;
-    margin-right: 2rem;
-    margin-top: 2rem;
+    margin: 5% auto;
+    background-color: wheat;
+}
+#admin__actions{
+    width: 90%;
+    border: .025rem solid wheat;
+    border-radius: 10px;
+    padding: 1rem;margin: 5% auto;
+    text-align: center;
+}
+#admin__actions input{
+    width: 40%;
+    border: .025rem solid gray;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0 auto;
+    color: black;
+    cursor: pointer;
+}
+#admin__actions input:hover{
+    background-color: gray;
 }
 #form__display{
-    width: 60%;
+    width: 90%;
+    border: .025rem solid gray;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 5% auto;
     background-color: lightgray;
 }
-.upload__fields{
+.upload__fields input,label, option,textarea,select{
+    width: 100%;
     height:2rem;
     color: chocolate;
     margin: .2rem 0;
     padding: .2rem;
+    border: none;
+}
+.form__controls label{
+    font-style: italic;
+    font-weight: bold;
+}
+option{
+    color: black;
 }
 #admin__workpsace> form > #form__body> #form__controls> .upload__fields> input{
     height: 2rem;
@@ -267,21 +372,22 @@ nav{
 
 /* Display all products */
 #product__shelf{
-    /* width: 80vw; */
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
 }
 #product__shelf, #product__card{
     color: black;
     background-color: white;
-    padding: 10px;
 }
 #product__card{
     width: 100%;
     border-top: 1rem solid darkgray;
     margin-right: 10px;
+    margin-top: 10px;
     display: flex;
+    /* padding: 10px; */
 }
 
 #product__card> div h3 {
@@ -342,7 +448,7 @@ summary{
     margin-right: 5px;
     display: none;
 }
-#card__buttons .fas{
+#card__buttons .fas,#clickedAction{
     display: block;
     font-size: 1.5rem;
     color: darkgray;
@@ -352,44 +458,64 @@ summary{
     display: none;
 } */
 
-#card__buttons> .icons> .fas:hover{
+#card__buttons> .icons> .fas:hover, #clickedAction:hover{
     display: block;
     font-size: 1.5rem;
     color: chocolate;
     margin-bottom: 10px;
 }
 
-#overlay{
+#overlay {
     width: 100%;
     height: 100%;
     background-color: grey;
-    opacity: 0.9;
+    opacity: 0.97;
     position: absolute;
     margin: 0;
     top: 0;
     left: 0;
+    justify-items: center;
+}
+#contentpage{
+    width: 60%;
+    position: absolute;
+    left: 18%;
+    margin: 0 auto;
+    top: 5%;
+    background-color: red;
 }
 
-#additem__page{
-    width: 60%;
-    height: 500px;
+#crudactions__page{
+    width: 100%;
+    height: 100%;
     background-color: black;
     opacity: 1;
     margin: 5% auto;
 }
 
-/* --------------admin operative additem, edit and remove items pages */
-#additem__page,#edititem__page,#removeitem__page{
-    /* display: flex; */
-    /* width: 100%; */
-}
+/* ------admin CRUD operative additem, edit and remove items pages */
+
 #display{
-    background-color: black;
+    background-color: white;
     color: white;
     width: 100%;
     display: flex;
     padding: 2rem;
     height: 60%;
+}
+#display > i{
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    border-color: red;
+    font-size: 20rem;
+    margin: 0 auto;
+}
+#display > .bi-x-lg:hover{
+    color: red;
+}
+#display > img{
+    margin: 0 auto;
 }
 #display div h1{
     margin: 2rem;
@@ -400,17 +526,86 @@ summary{
 #operate{
     width: 100%;
     height: 40%;
+    display: flex;
     padding: 2rem;
     background-color: wheat;
     color: black;
-    /* opacity: 0.7; */
+    justify-items: center;
+    text-align: center;
+
+}
+#operate h2,#operate h3,#operate h1,#operate p,#operate input{
+    color: black;
+    display: block;
+    /* margin: 0 2rem; */
+    font-size: 100%;
 }
 
-/* ----------------------for non Desktop view-------------------- */
+#operate input{
+    width: 90%;
+    margin: .5rem;
+    padding: .5rem;
+    color: black;
+    border: none;
+    border-bottom: 0.1 solid grey;
+}
+#operate input:focus{
+    color: black;
+    border-bottom: 0.1 solid grey;
+}
+#display_details{
+    width: 50%;
+    overflow: auto;
+}
+#display_details div h3{
+    border-bottom: beige .1rem solid;
+    margin-bottom: 1rem;
+    padding: .5rem;
+}
+#display_buttons{
+    width: 50%;
+    align-content: center;
+}
+#display_buttons > button{
+    background-color: rgb(124, 34, 1);
+    color: bisque;
+    font-weight:bolder;
+    font-size: 80%;
+    height: 50%;
+    width: 80%;
+    text-align: center;
+    padding: 2% 2%;
+    border: none;
+    border-radius: 10px;
+}
+#display_buttons > button:hover{
+    cursor: pointer;
+    background-color: black;
+    color: gray;
+}
+.close_dispay{
+    margin-left: 95%;
+    font-size: 2rem;
+}
+.close_dispay:hover{
+    color: gray;
+    cursor: pointer;
+}
+.delAlert{
+    font-size: 2rem;
+    font-style: italic;
+    margin: 0 auto;
+    margin: 25% 25%;
+    height: 100%;
+}
+
+/* --------for non Desktop view-------------------- */
 @media screen and (max-width:1281px) {
     nav{
         display: flex;
         justify-content: space-around;
+        width: 100%;
+        top: 10%;
     }
     .menubar{
         display: none;
@@ -459,5 +654,244 @@ summary{
     }
     .storebar{
         display: none;
+    }
+    /* #admin__sidebar{
+        width: 20%;
+        height: auto;
+        position: absolute;
+        top: 10%;
+        background-color: black;
+        padding: .2rem;
+        display: block;
+    } */
+    #product__shelf{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    /* CRUD display---------------- */
+    #contentpage{
+        width: 60%;
+        position: absolute;
+        left: 20%;
+        margin: 0 auto;
+        top: 5%;
+        background-color: red;
+    }
+    
+    #crudactions__page{
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 1;
+        margin: 5% auto;
+    }
+    #display{
+        background-color: white;
+        color: white;
+        width: 100%;
+        display: flex;
+        padding: 2rem;
+        height: 60%;
+    }
+    #display > img{
+        margin: 0 auto;
+        width: 90%;
+        height: 100%;
+    }
+    #display div h1{
+        margin: 2rem;
+        color: white;
+        align-items: center;
+        font-style: italic;
+    }
+    #operate{
+        width: 100%;
+        height: 40%;
+        display: flex;
+        padding: 2%;
+        background-color: wheat;
+        color: black;
+        justify-items: center;
+        text-align: center;
+    
+    }
+    #operate h2,#operate h3,#operate h1,#operate p,#operate input{
+        color: black;
+        display: block;
+        /* margin: 0 2rem; */
+        font-size: 100%;
+    }
+    
+    #operate input{
+        width: 90%;
+        margin: .5rem;
+        padding: .5rem;
+        color: black;
+        border: none;
+        border-bottom: 0.1 solid grey;
+    }
+    #operate input:focus{
+        color: black;
+        border-bottom: 0.1 solid grey;
+    }
+    #display_details{
+        width: 50%;
+        overflow: auto;
+    }
+
+    #display_buttons{
+        width: 50%;
+    }
+    #display_buttons > button{
+        background-color: rgb(124, 34, 1);
+        color: bisque;
+        font-weight:bolder;
+        font-size: 80%;
+        height: 50%;
+        width: 80%;
+        text-align: center;
+        padding: 2% 2%;
+        border: none;
+        border-radius: 10px;
+    }
+    #display_buttons > button:hover{
+        cursor: pointer;
+        background-color: black;
+        color: gray;
+    }
+
+}
+@media screen and (max-width:700px) {
+    .body{
+        box-sizing: box;
+        margin: 0;
+    }
+    .container{
+        width: 100%;
+    }
+    nav{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        top: 10%;
+    }
+    #admin__sidebar{
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 10%;
+        background-color: black;
+        padding: .2rem;
+        display: block;
+    }
+    #admin__workpsace{
+        width: 100%;
+        position: relative;
+        left: 0;
+        /* margin-top: 2rem; */
+        /* background-color: lightgray; */
+    }
+    #admin__workpsace> form{
+        color: chocolate;
+        border: .1rem solid chocolate;
+        border-radius: 10px;
+        /* padding: 2rem; */
+        display: block;
+    }
+    #form__body{
+        display: flex;
+    }
+    #form__controls, #form__display{
+        width: auto;
+        border: .025rem solid gray;
+        border-radius: 10px;
+        padding: 1rem;
+        /* margin-right: 2rem; */
+        /* margin-top: 2rem; */
+    }
+    #form__display{
+        width: 60%;
+        background-color: lightgray;
+    }
+    #product__shelf{
+        display: block;
+    }
+
+    /* Upload__form------------------------ */
+    #admin__workpsace{
+        width: 90%;
+        position: relative;
+        left: 5%;
+        margin-top: 2rem;
+    }
+    #form__controls, #form__display{
+        width: auto;
+        border: .025rem solid gray;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-right: 2rem;
+        margin-top: 2rem;
+    }
+    #form__body{
+        display: block;
+    }
+    #form__display{
+        background-color: lightgray;
+        width: 90%;
+        text-align: center;
+    }
+    .upload__fields{
+        height:2rem;
+        color: chocolate;
+        margin: .2rem 0;
+        padding: .2rem;
+    }
+    #admin__workpsace> form > #form__body> #form__controls> .upload__fields> input{
+        height: 2rem;
+        font-size: 1.2rem;
+        color: chocolate;
+    }
+    #admin__workpsace> form > #form__header> h2{
+        font-size: 2rem;
+        color: chocolate;
+        padding: .2rem;
+        border-bottom: .1rem solid chocolate;
+    }
+    #admin__workpsace> form > #form__body> #form__controls textarea{
+        background-color: transparent;
+        color: black;
+        margin-top: .5rem;
+    }
+    /* admin operative ------ */
+    #display{
+        display: block;
+        padding: 1rem 0;
+        text-align: center;
+        margin: 0;
+    }
+    #display > div{
+        display: none;
+    }
+
+    #display_buttons > button{
+        background-color: rgb(124, 34, 1);
+        color: bisque;
+        font-weight:bolder;
+        font-size: 80%;
+        height: 50%;
+        width: auto;
+        text-align: center;
+        margin: 0 auto;
+        padding: 2% 2%;
+        border: none;
+        border-radius: 10px;
+    }
+    #display_buttons > button:hover{
+        cursor: pointer;
+        background-color: black;
+        color: gray;
     }
 }

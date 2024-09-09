@@ -7,7 +7,10 @@
     <title>Register</title>
 </head>
 <body>
-    <div class="container">
+     <!-- the navbar -->
+     <%- include('nav',{'profileroute':"/register", 'label':'Register'}); %>
+    <!-- registration form -->
+     <div class="container">
         <form action="" method="post" name="form__signon" id="form__signon">
             <div id="title_container">
                 <h2>User Sign-On</h2>
@@ -49,10 +52,12 @@
         </form>
 
     </div>
-
+    <!-- scripting -->
+    <script src="https://kit.fontawesome.com/434d831d58.js" crossorigin="anonymous"></script>
     <script src="/script/jquery.js"></script>
     <!-- <script src="/server/routes/home.js"></script> -->
     <script src="/script/register.js"></script>
+
 
 </body>
 </html>

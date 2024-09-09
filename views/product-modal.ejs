@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <link rel="stylesheet" href="/css/admin.css">
+    <title>dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <img src="/assets/SBO Logo.png" alt="company Logo" width="50">
+            </div>
+            <div class="menubar">
+                <ul class="menuitems">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Products</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="searchbar">
+                <input type="text" name="" id="">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="storebar">
+                <div class="alert">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="cart">
+                    <i class="fas fa-cart-arrow-down"></i>
+                </div>
+            </div>
+            <a href="/logout-admin">
+                <div class="userprofile">
+                    <div><i class="fas fa-user-tie"></i></div>
+                    <p>Log Out</p>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <div id="admin__sidebar">
+        <div id="admin_title">
+            <p><a class="close_adminSidebar">&times</a></p>
+            <h1>Admin Dashboard</h1>
+        </div>
+
+        <div id="search__sidebar">
+
+        </div>
+        <fieldset id="maintain__sidebar">
+            <legend>MAINTAIN PAGES</legend>
+            <ul class="sidebar__lists" id="maintain__list">
+                <div id="prod_create" class="list_collapse">
+                    <h3 id="subtitle1" class="maintainlist_titles">Create Product</h3>
+                    <ul class="list__hidden" id="hide__create">
+                        <li id="view__toCreate"><a href="#">View</a></li>
+                        <li id="upload__toCreate"><a href="#">Upload</a></li>
+                    </ul>
+                </div>
+                <div id="prod_update" class="list_collapse">
+                    <li><a href="#" id="subtitle2" class="maintainlist_titles">Update Products</a></li>
+                    <ul class="list__hidden" id="hide__update">
+                        <li><a href=""></a>View</li>
+                        <li><a href=""></a>Upload</li>
+                    </ul>
+                </div>
+                <div id="prod_edit" class="list_collapse">
+                    <li><a href="#" id="subtitle3" class="maintainlist_titles">Edit Product</a></li>
+                    <ul class="list__hidden" id="hide__edit">
+                        <li><a href=""></a>View</li>
+                        <li><a href=""></a>Upload</li>
+                    </ul>
+                </div>
+                <div id="prod_delete" class="list_collapse">
+                    <li><a href="#" id="subtitle4" class="maintainlist_titles">Delete Product</a></li>
+                    <ul class="list__hidden" id="hide__delete">
+                        <li><a href=""></a>View</li>
+                        <li><a href=""></a>Upload</li>
+                    </ul>
+                </div>
+            </ul>
+        </fieldset>
+        <fieldset id="view__sidebar">
+            <legend>VIEW PAGES</legend>
+            <ul class="sidebar__lists" id="view__list">
+                <li><a href="">Product Categories</a></li>
+                <li><a href="">Electronics Products</a></li>
+                <li><a href="">Wears Product</a></li>
+                <li><a href="">Groceries Product</a></li>
+            </ul>
+        </fieldset>
+        <fieldset id="settings__sidebar">
+            <legend>SETTINGS</legend>
+            <ul class="sidebar__lists" id="settings__list">
+                <li><a href="">Admins profile</a></li>
+                <li><a href="">Themes</a></li>
+            </ul>
+        </fieldset>
+    </div>
+    
+    <div id="admin__workpsace">
+        <p class="delAlert"><%= message %></p>
+    </div>
+
+    <script src="https://kit.fontawesome.com/434d831d58.js" crossorigin="anonymous"></script>
+    <script src="script/jquery.js"></script>   
+    <script src="script/admin.js"></script> 
+</body>
+</html>
