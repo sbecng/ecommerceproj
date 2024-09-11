@@ -61,24 +61,40 @@ nav{
     color: silver;
 }
 .searchbar{
-    background-color: yellow;
-    border: .1rem solid black;
+    /* background-color: rgb(238, 238, 177); */
+    border: .005rem solid black;
     justify-content: space-between;
-    padding: .1rem;
-    border-radius: 2%;
+    /* padding: .1rem; */
+    border-radius: 10px;
+    border-color: rgb(158, 158, 108);
+    width: 100%;
+    height: 2.2rem;
+    display: block;
+    position: relative;
+    padding: 0;
 }
 .searchbar> input{
-    width: 92%;
-    height: 1.8rem;
+    width: 87%;
+    height: 1.6rem;
     font-size: 1rem;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
+    background: transparent;
     border: none;
     color: black;
+    margin: 0;
+    position: absolute;
+    left: 10%;
+    top: 3px;
+
 }
 
 .fa-search{
     font-size: 1.3rem;
-    color: black;
+    color: bisque;
+    padding: .2rem;
+    position: absolute;
+    margin-left: 5px;
+
 }
 .fa-search:hover{
     cursor: pointer;
@@ -312,7 +328,7 @@ legend{
 /* ...........shopping cart........... */
 .big-cart{
     width: 25%;
-    /* display: none; */
+    display: none;
     background-color: antiquewhite;
     /* position: fixed; */
     /* inset: 0 0 0 auto; */
@@ -366,12 +382,15 @@ legend{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(24%,auto));
     gap: 10px;
-    padding: 5%;
+    padding: 2%;
     border-bottom: .1rem solid darkred;
     overflow-wrap: normal;
 }
-.tray_img img{
+.tray_img,.tray_img img{
     width: 50px;
+}
+.tray_name{
+    word-wrap: break-word;
 }
 .tray_qty{
     display: flex;
@@ -380,24 +399,25 @@ legend{
     color: gray;
     margin-right: .5rem;
     align-content: center;
+    font-size: 80%;
 
 }
 .qty{
     align-content: center;
     color: black;
+    font-size: 80%;
 }
 .minus,.plus {
-    font-size: 1.2rem;
-    width: 1.2rem;
+    width: 1.5rem;
     height: 1.2rem;
     font-weight: bolder;
     background-color: gray;
     color: white;
-    border-radius:5px;
-    margin: .2rem;
+    border-radius:50%;
+    margin: .5rem;
     cursor: pointer;
-    padding-left: .2rem;
-    align-self: center;
+    padding:.1rem .5rem 0 .5rem;
+    text-align: center;
 }
 /* ----------------------Users Shopfloor-------------------- */
 
@@ -412,7 +432,6 @@ legend{
     display: grid;
     /* grid-template-columns: 1fr 1fr 1fr; */
     grid-template-columns: repeat(auto-fit, minmax(20%, auto) ) ;
-
     gap: 10px;
     position: relative;
 
@@ -442,20 +461,23 @@ legend{
 summary{
     color: black;
     font-weight: bolder;
-    font-size: 1.5rem;
+    font-size: 120%;
     margin-bottom: 10PX;
 }
 #card__image{
-    width: 90%;
+    /* width: 90%; */
 }
+
 #prodimg{
     margin: 10px;
     filter: drop-shadow(0 10px 20px #0009);
+    width: 50%;
 }
 
 #card__image img,figcaption> h3, #card__image img,figcaption>p{
     text-align: center;
     width: 100%;
+    font-size: 100%;
 }
 #card__details{
     position: relative;
@@ -466,6 +488,7 @@ summary{
 #card__details> div> p{
     color: black;
     margin-bottom: 5px;
+    
 }
 #card__details> div> p:hover{
     color: chocolate;
@@ -485,7 +508,7 @@ summary{
     color: chocolate;
     font-style: italic;
     width: auto;
-    text-wrap: nowrap;
+    text-wrap:wrap;
     margin-right: 5px;
     display: none;
 }
