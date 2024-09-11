@@ -219,7 +219,11 @@ $.ajax({
                             <span class='minus'> < </span>
                             <span class='qty'> 1 </span>
                             <span class='plus'> > </span>
-                        </div>`
+                        </div>
+                        <div class='tray_delete tray_items'>
+                            <span class='tray_delbtn' onclick='removetray_fromBigcart(${product_tray_id})'> &times </span>
+                        </div>
+                        `
                         // put product tray into cart
                         trays_container.appendChild(product_tray)
                         big_cart.appendChild(trays_container);
@@ -361,7 +365,7 @@ function loadCart_fromLocalStorage(){
             //identify product_tray by cartinstorage tray id
             const product_tray = document.createElement('div');
             $(product_tray).attr({'id':`tray_${c_tray.tray_id}`,'class':'product_tray'});
-
+            let product_toDel = c_tray.tray_id
             product_tray.innerHTML += `
             <div class='tray_img tray_items'>
                 <img src='${c_tray.tray_img}'> 
@@ -372,7 +376,11 @@ function loadCart_fromLocalStorage(){
                 <span class='minus'> < </span>
                 <span class='qty'> ${c_tray.tray_qty} </span>
                 <span class='plus'> > </span>
-            </div>`
+            </div>
+            <div class='tray_delete tray_items'>
+                <span class='tray_delbtn' onclick='removetray_fromBigcart(${product_toDel})'> &times </span>
+            </div>
+            `
             // put product tray into cart
             trays_container.appendChild(product_tray)
             big_cart.appendChild(trays_container);
@@ -387,7 +395,59 @@ function loadCart_fromLocalStorage(){
     };
 
 }
+//remove item from cart
+function removetray_fromBigcart(product_toDel){
+    console.log('Clicked X buuton');
+    //check for existing cart, return it or empty array []
+    let cartinstorage = localStorage.getItem('cartinstorage')? JSON.parse(localStorage.getItem('cartinstorage')) : [];
 
+    if(cartinstorage.length > 0){
+        // get elevant carts elements
+        const big_cart = document.querySelector('.big-cart');
+        const sml_cart_carthole = document.querySelector('.cartholr'); //navbar cart icon
+        let sml_cart_itemsCount = $('.cartholr').html() //counter for navbar cart icon
+        //get trays_container
+        let trays_container = document.querySelector('.trays');
+        //create product tray for the clicked item
+        const product_tray = document.createElement('div');
+        //iterate localstorage cart to add its items to shopping cart
+        let totqtyinstorage = 0
+        cartinstorage.forEach(c_tray => {
+            //identify product_tray by cartinstorage tray id
+            const product_trayToremove = c_tray.tray_id
+            if(product_toDel === product_trayToremove){
+                cartinstorage.splice(getIndex(product_trayToremove), 1);
+            }
+
+            localStorage.setItem('cartinstorage', JSON.stringify(cartinstorage));
+
+            product_tray.innerHTML += `
+            <div class='tray_img tray_items'>
+                <img src='${c_tray.tray_img}'> 
+            </div>
+            <div class='tray_name tray_items'>${c_tray.tray_name} </div>
+            <div class='totprice_in_tray tray_items'>${c_tray.tray_totprice} </div>
+            <div class='tray_qty tray_items'>
+                <span class='minus'> < </span>
+                <span class='qty'> ${c_tray.tray_qty} </span>
+                <span class='plus'> > </span>
+            </div>
+            <div class='tray_delete tray_items'>
+                <span class='tray_delbtn' onclick='removetray_fromBigcart(${product_trayToremove})'> &times </span>
+            </div>
+            `
+            // put product tray into cart
+            trays_container.appendChild(product_tray)
+            big_cart.appendChild(trays_container);
+            totqtyinstorage = totqtyinstorage + c_tray.tray_qty
+            // update small cart items qty
+            $('.cartholr').text(`${totqtyinstorage}`) 
+
+        })
+    }
+}
+
+//..............User view product by categories''''''''''''''''''''
 function getAllProductsbyCategory(){
     $(function(){
 
