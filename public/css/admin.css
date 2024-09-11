@@ -68,6 +68,8 @@ nav{
     display: block;
     position: relative;
     padding: 0;
+    color: bisque;
+
 }
 .searchbar> input{
     width: 87%;
@@ -76,7 +78,7 @@ nav{
     /* background-color: aliceblue; */
     background: transparent;
     border: none;
-    color: black;
+    color: bisque;
     margin: 0;
     position: absolute;
     left: 10%;
